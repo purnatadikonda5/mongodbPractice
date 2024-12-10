@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="onechats">
+        <p id="onechat--from">From: <%= chat.from %></p>
+        <p id="onechat-to">To: <%= chat.to %></p>
+        <div id="onechat-msg-box">
+            <p id="onechat-msg">message: <%= chat.msg%></p>
+        </div>
+        <p>Created at: <%= chat.Created_at.toString().split(" ")[4] %> , <%= chat.Created_at.toString().split(" ").slice(0,4).join(" ") %></p>
+        <p>updated at: <%= chat.updated_at.toString().split(" ")[4] %> , <%= chat.updated_at.toString().split(" ").slice(0,4).join(" ") %></p>
+        <form action="">
+            <button class="onechats-btns">Update Chat</button>
+        </form>
+        <form action="">
+            <button class="onechats-btns">Delete Chat </button>
+        </form>
+    </div>
+</body>
+</html>

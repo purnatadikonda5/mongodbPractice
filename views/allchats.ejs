@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <br />
+    <form action="http://localhost:8080/newchat" method="GET"><button >ADD NEW CHAT</button></form>
+    <br />
+
+    <% for(let chat of chats){ %>
+        <div class="allchats">
+            <p id="from">From: <%= chat.from %></p>
+            <p id="to">To: <%= chat.to %></p>
+            <div id="msg-box">
+                <p id="msg">message: <%= chat.msg%></p>
+            </div>
+            <form action="">
+                <button class="allchats-btns ">More about Chat</button>
+            </form>
+            <form action="">
+                <button class="allchats-btns">Update Chat</button>
+            </form>
+            <form action="">
+                <button class="allchats-btns">Delete Chat </button>
+            </form>
+        </div>
+   <% } %>
+</body> 
+</html>
