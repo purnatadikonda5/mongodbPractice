@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .newchats{
+        .updatechatform{
             display: flex;
             justify-content: center;
             align-items: center;
@@ -22,12 +22,7 @@
             border-left: 12px solid black;
             border-top: 15px solid black;
         }
-        .newchats-bxs{
-            border: 3px solid rgb(112, 135, 169);
-            border-radius: 15px;
-            padding:6px;
-        }
-        #newchats-sub{
+        #updchats-sub{
             border: 3px solid rgb(112, 135, 169);
             border-radius: 15px;
             padding:10px;
@@ -35,17 +30,14 @@
     </style>
 </head>
 <body>
-    <!-- <p>hai</p> -->
-    <form action="http://localhost:8080/chats" method="POST" class="newchats">
+    <form action="http://localhost:8080/chats/<%=chat._id%>?_method=PUT" method="POST" class="updatechatform">
         <p>ENTER YOUR CHAT DETAILS: </p>
         <br>
-       <p> From: <input name="from" placeholder="from" class="newchats-bxs"></p>
+        <p><%= chat.from %> --------> <%= chat.to %></p>
         <br>
-        <p>To: <input name="to" placeholder="to" class="newchats-bxs"></p>
+       <p> msg: <textarea name="msg"><%= chat.msg %></textarea></p>
         <br>
-       <p> msg: <textarea name="msg" placeholder="ENTER YOUR MSG" class="newchats-bxs"></textarea></p>
-        <br>
-        <button id="newchats-sub">submit</button>
+        <button id="updchats-sub">Update</button>
     </form>
 </body>
 </html>

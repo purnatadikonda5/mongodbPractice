@@ -2,11 +2,14 @@ const express= require("express");
 const app= express();
 const mongoose= require("mongoose");
 const path= require("path");
+let methodOverride= require('method-override');
 let {Chat}= require("./models/chat");
 app.listen(8080,()=>{
     console.log("listening at port no. 8080");
 });
+app.use(methodOverride('_method'));
 app.use(express.urlencoded({extended:true}));
+app.use(express.json());
 app.set("view-engine","ejs");
 app.use(express.static(path.join(__dirname,"public")));
 app.set("views",path.join(__dirname,"views"));
@@ -38,9 +41,22 @@ app.post("/chats",(req,res)=>{
         updated_at:new Date()
     });
     chat1.save().then(res=>console.log(res)).catch(err=>console.log(err));
-    res.redirect("/chats");
+    res.redirect("chats");
 })
 app.get("/newchat",(req,res)=>{
     // res.send("hai");
     res.render("newchat.ejs");
+})
+app.get("/updateform/:id",async(req,res)=>{
+    let {id}= req.params;
+    let chat= await Chat.findById(id);
+    console.log(chat);
+    res.render("updatechatform.ejs",{chat});
+})
+app.put("/chats/:id",async(req,res)=>{
+    let {id}= req.params;
+    let msg= req.body.msg;
+    console.log(id);
+    await Chat.updateOne({_id:id},{$set:{msg:msg,updated_at: new Date()}})
+    res.redirect("/chats");
 })

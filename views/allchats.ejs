@@ -8,27 +8,34 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
+    
+        <br />
+    <form action="http://localhost:8080/newchat" method="GET" style="text-align: end;"><button class="allchats-btns">ADD NEW CHAT</button></form>
     <br />
-    <form action="http://localhost:8080/newchat" method="GET"><button >ADD NEW CHAT</button></form>
-    <br />
-
+    <div class="allchats-main-box">
     <% for(let chat of chats){ %>
         <div class="allchats">
-            <p id="from">From: <%= chat.from %></p>
-            <p id="to">To: <%= chat.to %></p>
-            <div id="msg-box">
-                <p id="msg">message: <%= chat.msg%></p>
+            <div class="allchats-head">
+                <p id="from"><%= chat.from %></p>
+                <p>--------------></p>
+                <p id="to"><%= chat.to %></p>
             </div>
-            <form action="">
-                <button class="allchats-btns ">More about Chat</button>
-            </form>
-            <form action="">
-                <button class="allchats-btns">Update Chat</button>
-            </form>
-            <form action="">
-                <button class="allchats-btns">Delete Chat </button>
-            </form>
+            <div id="msg-box">
+                <p id="msg">message:--->  <%= chat.msg%></p>
+            </div>
+            <div class="allc-btn-box">
+                <form action="http://localhost:8080/chats/<%=chat._id%>" method="get">
+                    <button class="allchats-btns ">More about Chat</button>
+                </form>
+                <form action="http://localhost:8080/updateform/<%=chat._id%>" method="get">
+                    <button class="allchats-btns">Update Chat</button>
+                </form>
+                <form action="">
+                    <button class="allchats-btns">Delete Chat </button>
+                </form>
+            </div>
         </div>
    <% } %>
+    </div>
 </body> 
 </html>
