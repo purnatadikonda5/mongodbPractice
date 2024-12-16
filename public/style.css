@@ -37,6 +37,7 @@
 }
 .allchats-btns,.onechat-btns{
     background-color: rgb(242, 200, 101);
+    /* background-color: rgb(7, 252, 244); */
     border: 3px solid black;
     border-radius:30px;
     margin-top: 10px;
@@ -51,4 +52,8 @@
 #msg-box,#onechat-msg-box{
     margin: 20px 20px 20px 20px ;
     font-family:fantasy;
+}
+body{
+    background: radial-gradient(circle, #980ddd, #cabfcf,#3fb8c3,#9707e0);
+    background-size: cover;
 }

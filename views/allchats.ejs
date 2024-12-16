@@ -30,7 +30,7 @@
                 <form action="http://localhost:8080/updateform/<%=chat._id%>" method="get">
                     <button class="allchats-btns">Update Chat</button>
                 </form>
-                <form action="">
+                <form action="http://localhost:8080/chats/<%=chat._id%>?_method=DELETE" method="post">
                     <button class="allchats-btns">Delete Chat </button>
                 </form>
             </div>

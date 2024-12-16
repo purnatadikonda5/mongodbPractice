@@ -60,3 +60,8 @@ app.put("/chats/:id",async(req,res)=>{
     await Chat.updateOne({_id:id},{$set:{msg:msg,updated_at: new Date()}})
     res.redirect("/chats");
 })
+app.delete("/chats/:id",async(req,res)=>{
+    let {id}= req.params;
+    await Chat.findByIdAndDelete(id);
+    res.redirect("/chats");
+})
